@@ -1,0 +1,20 @@
+object DataModule1: TDataModule1
+  OnCreate = DataModuleCreate
+  Height = 738
+  Width = 908
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'Database=C:\Users\wolfg\Documents\banco\GESTPETDB.FDB'
+      'User_Name=sysdba'
+      'Password=masterkey'
+      'DriverID=FB')
+    Left = 48
+    Top = 24
+  end
+  object FDPhysFBDriverLink1: TFDPhysFBDriverLink
+    VendorLib = 'C:\Program Files (x86)\Firebird\Firebird_2_5\bin\fbclient.dll'
+    Embedded = True
+    Left = 48
+    Top = 88
+  end
+end

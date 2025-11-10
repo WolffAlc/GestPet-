@@ -1,0 +1,145 @@
+object Dm1: TDm1
+  Height = 738
+  Width = 908
+  object conexaoBanco: TFDConnection
+    Params.Strings = (
+      'Database=D:\ProjectSimplesPet\SimplesPet\banco\GESTPETDB.FDB'
+      'User_Name=sysdba'
+      'Password=masterkey'
+      'Protocol=TCPIP'
+      'Server=localhost'
+      'Port=3050'
+      'DriverID=FB')
+    Connected = True
+    LoginPrompt = False
+    Left = 48
+    Top = 24
+  end
+  object FDPhysFBDriverLink1: TFDPhysFBDriverLink
+    VendorLib = 'C:\Program Files (x86)\Firebird\Firebird_2_5\bin\fbclient.dll'
+    Embedded = True
+    Left = 48
+    Top = 88
+  end
+  object tbCliente: TFDTable
+    Active = True
+    IndexFieldNames = 'CODCLIENTE'
+    Connection = conexaoBanco
+    ResourceOptions.AssignedValues = [rvEscapeExpand]
+    TableName = 'TBCLIENTE'
+    Left = 40
+    Top = 616
+    object tbClienteCODCLIENTE: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'CODCLIENTE'
+      Origin = 'CODCLIENTE'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object tbClienteNOME: TStringField
+      FieldName = 'NOME'
+      Origin = 'NOME'
+      Size = 60
+    end
+    object tbClienteCPFCNPJ: TStringField
+      FieldName = 'CPFCNPJ'
+      Origin = 'CPFCNPJ'
+      EditMask = '000.000.000-00;0;_'
+      Size = 14
+    end
+    object tbClienteRG: TStringField
+      FieldName = 'RG'
+      Origin = 'RG'
+      EditMask = '00.000.000.0;0;_'
+      Size = 9
+    end
+    object tbClienteTIPOPESSOA: TStringField
+      FieldName = 'TIPOPESSOA'
+      Origin = 'TIPOPESSOA'
+      Size = 2
+    end
+    object tbClienteEMAIL: TStringField
+      FieldName = 'EMAIL'
+      Origin = 'EMAIL'
+      Size = 60
+    end
+    object tbClienteDTNASCIMENTO: TDateField
+      FieldName = 'DTNASCIMENTO'
+      Origin = 'DTNASCIMENTO'
+      EditMask = '00/00/0000;1;_'
+    end
+    object tbClienteDTCADASTRO: TDateField
+      FieldName = 'DTCADASTRO'
+      Origin = 'DTCADASTRO'
+      EditMask = '00/00/0000;1;_'
+    end
+    object tbClienteTELEFONE1: TStringField
+      FieldName = 'TELEFONE1'
+      Origin = 'TELEFONE1'
+      EditMask = '(00)00000-0000;0;_'
+      Size = 11
+    end
+    object tbClienteTELEFONE2: TStringField
+      FieldName = 'TELEFONE2'
+      Origin = 'TELEFONE2'
+      EditMask = '(00)00000-0000;0;_'
+      Size = 11
+    end
+    object tbClienteCEP: TStringField
+      FieldName = 'CEP'
+      Origin = 'CEP'
+      EditMask = '00000-000;0;_'
+      Size = 8
+    end
+    object tbClienteESTADO: TStringField
+      FieldName = 'ESTADO'
+      Origin = 'ESTADO'
+      Size = 2
+    end
+    object tbClienteCIDADE: TStringField
+      FieldName = 'CIDADE'
+      Origin = 'CIDADE'
+      Size = 50
+    end
+    object tbClienteBAIRRO: TStringField
+      FieldName = 'BAIRRO'
+      Origin = 'BAIRRO'
+      Size = 40
+    end
+    object tbClienteENDERECO: TStringField
+      FieldName = 'ENDERECO'
+      Origin = 'ENDERECO'
+      Size = 70
+    end
+    object tbClienteNUMENDERECO: TStringField
+      FieldName = 'NUMENDERECO'
+      Origin = 'NUMENDERECO'
+      Size = 10
+    end
+    object tbClienteCOMPLEMENTO: TStringField
+      FieldName = 'COMPLEMENTO'
+      Origin = 'COMPLEMENTO'
+      Size = 80
+    end
+    object tbClienteOBSERVACOES: TStringField
+      FieldName = 'OBSERVACOES'
+      Origin = 'OBSERVACOES'
+      Size = 200
+    end
+    object tbClienteFOTO: TBlobField
+      FieldName = 'FOTO'
+      Origin = 'FOTO'
+    end
+    object tbClienteWHATSAPP: TStringField
+      FieldName = 'WHATSAPP'
+      Origin = 'WHATSAPP'
+      EditMask = '(00)00000-0000;0;_'
+      Size = 11
+    end
+  end
+  object dsCliente: TDataSource
+    DataSet = tbCliente
+    Left = 40
+    Top = 672
+  end
+end

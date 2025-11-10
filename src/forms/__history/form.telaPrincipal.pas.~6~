@@ -1,0 +1,51 @@
+unit form.telaPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+  Vcl.Menus, Vcl.StdCtrls, Vcl.Buttons;
+
+type
+  TformPrincipal = class(TForm)
+    MainMenu1: TMainMenu;
+    Menu2: TMenuItem;
+    CadastrarCliente1: TMenuItem;
+    CadastrarPet1: TMenuItem;
+    Image1: TImage;
+    Panel1: TPanel;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    SpeedButton3: TSpeedButton;
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  formPrincipal: TformPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+uses form.cadCliente, form.cadPet;
+
+
+procedure TformPrincipal.SpeedButton2Click(Sender: TObject);
+begin
+    cadPet.showModal;
+end;
+
+procedure TformPrincipal.SpeedButton3Click(Sender: TObject);
+begin
+    cadCliente.ShowModal;
+end;
+
+end.

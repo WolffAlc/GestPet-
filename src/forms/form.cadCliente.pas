@@ -1,0 +1,153 @@
+unit form.cadCliente;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+  Vcl.ComCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, Vcl.Buttons,
+  Vcl.Imaging.jpeg, Data.DB, Data.Win.ADODB, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+
+type
+  TcadCliente = class(TForm)
+    pageCadCliente: TPageControl;
+    tabCadCliente: TTabSheet;
+    Image1: TImage;
+    GroupBox1: TGroupBox;
+    GroupBox2: TGroupBox;
+    edtNome: TDBEdit;
+    edtCpfCnpj: TDBEdit;
+    edtRg: TDBEdit;
+    edtDataNascimento: TDBEdit;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    edtTel1: TDBEdit;
+    Label7: TLabel;
+    edtTel2: TDBEdit;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    edtEmail: TDBEdit;
+    Label11: TLabel;
+    edtEndereco: TDBEdit;
+    Label12: TLabel;
+    edtCep: TDBEdit;
+    EdtUF: TDBEdit;
+    Label13: TLabel;
+    edtCidade: TDBEdit;
+    Label14: TLabel;
+    Label15: TLabel;
+    EdtBairro: TDBEdit;
+    Label16: TLabel;
+    EdtNum: TDBEdit;
+    Label17: TLabel;
+    edtCompl: TDBEdit;
+    imgFoto: TDBImage;
+    GroupBox3: TGroupBox;
+    mmObs: TDBMemo;
+    GroupBox4: TGroupBox;
+    Label1: TLabel;
+    edtDtCadastro: TDBEdit;
+    Label18: TLabel;
+    edtCodCli: TDBEdit;
+    Image2: TImage;
+    GroupBox5: TGroupBox;
+    btnBuscar: TButton;
+    navBarCLiente: TDBNavigator;
+    dbrTipoPessoa: TDBRadioGroup;
+    edtWpp: TDBEdit;
+    GroupBox6: TGroupBox;
+    procedure btnBuscarClick(Sender: TObject);
+    procedure navBarCLienteDblClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  cadCliente: TcadCliente;
+
+implementation
+
+{$R *.dfm}
+
+uses
+  uDataModule, model.ConsultarCep;
+
+procedure TcadCliente.btnBuscarClick(Sender: TObject);
+var
+  ViaCep: TViaCep;
+begin
+  ViaCep := TViaCep.Create;
+  try
+    if ViaCep.ConsultarCEP(edtCEP.Text) then
+    begin
+      edtEndereco.Text := ViaCep.Logradouro;
+      edtBairro.Text   := ViaCep.Bairro;
+      edtCidade.Text   := ViaCep.Localidade;
+      edtUF.Text       := ViaCep.Uf;
+    end
+    else
+      ShowMessage('CEP não encontrado!');
+  finally
+    ViaCep.Free;
+  end;
+
+end;
+//procedure TcadCliente.Button1Click(Sender: TObject);
+//begin
+//  Dm1.tbCliente.Insert;
+//end;
+//
+//procedure TcadCliente.Button2Click(Sender: TObject);
+//begin
+//  if edtNome.Text = '' then
+//    begin
+//      MessageDlg('Campo "Nome" não pode ficar em branco!', mtInformation, [mbOK], 0);
+//      abort
+//    end;
+//
+//  if edtCpfCnpj.Text = '' then
+//    begin
+//      MessageDlg('Campo "CPF/CNPJ" não pode ficar em branco!', mtInformation, [mbOK], 0);
+//      abort
+//    end;
+//
+//  if edtTel1.Text = '' then
+//    begin
+//      MessageDlg('Campo "Telefone 1" não pode ficar em branco!', mtInformation, [mbOK], 0);
+//      abort
+//    end;
+//
+//  if edtEmail.Text = '' then
+//    begin
+//      MessageDlg('Campo "CPF/CNPJ" não pode ficar em branco!', mtInformation, [mbOK], 0);
+//      abort
+//    end;
+//
+//  if edtCEP.Text = '' then
+//    begin
+//      MessageDlg('Campo "CEP" não pode ficar em branco!', mtInformation, [mbOK], 0);
+//      abort
+//    end;
+//
+//
+//  Dm1.tbCliente.Post;
+//end;
+
+procedure TcadCliente.navBarCLienteDblClick(Sender: TObject);
+begin
+  if dm1.dsCliente.State = dsInsert then
+    begin
+      dbrTipoPessoa.Value := 'F';
+    end;
+end;
+
+end.

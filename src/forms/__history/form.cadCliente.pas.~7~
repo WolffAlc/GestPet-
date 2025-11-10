@@ -1,0 +1,74 @@
+unit form.cadCliente;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+  Vcl.ComCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, Vcl.Buttons, uColoredGroupBox,
+  Vcl.Imaging.jpeg, Data.DB, Data.Win.ADODB, uDataModule;
+
+type
+  TcadCliente = class(TForm)
+    pageCadCliente: TPageControl;
+    tabCadCliente: TTabSheet;
+    Image1: TImage;
+    GroupBox1: TGroupBox;
+    GroupBox2: TGroupBox;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBEdit4: TDBEdit;
+    RadioGroup1: TRadioGroup;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    DBEdit5: TDBEdit;
+    Label7: TLabel;
+    DBEdit6: TDBEdit;
+    DBEdit7: TDBEdit;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    DBEdit8: TDBEdit;
+    Label11: TLabel;
+    DBEdit9: TDBEdit;
+    Label12: TLabel;
+    DBEdit10: TDBEdit;
+    DBEdit11: TDBEdit;
+    Label13: TLabel;
+    DBEdit12: TDBEdit;
+    Label14: TLabel;
+    Label15: TLabel;
+    DBEdit13: TDBEdit;
+    Label16: TLabel;
+    DBEdit14: TDBEdit;
+    Label17: TLabel;
+    DBEdit15: TDBEdit;
+    DBImage1: TDBImage;
+    GroupBox3: TGroupBox;
+    DBMemo1: TDBMemo;
+    GroupBox4: TGroupBox;
+    Label1: TLabel;
+    DBEdit16: TDBEdit;
+    Label18: TLabel;
+    DBEdit17: TDBEdit;
+    Image2: TImage;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  cadCliente: TcadCliente;
+
+implementation
+
+{$R *.dfm}
+
+
+
+end.
